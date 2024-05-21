@@ -98,4 +98,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	-- delay update diagnostics
 	update_in_insert = true,
 })
+
 --===============================================================--

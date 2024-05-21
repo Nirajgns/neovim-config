@@ -37,6 +37,5 @@
   "trouble.nvim": { "branch": "main", "commit": "a8264a65a0b894832ea642844f5b7c30112c458f" },
   "ui": { "branch": "v2.5", "commit": "91f5077e9268c8a8200c5f4b277328057ef3dd83" },
   "ultimate-autopair.nvim": { "branch": "v0.6", "commit": "042587c63b2b2776a83337748d53dba8b67ec545" },
-  "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

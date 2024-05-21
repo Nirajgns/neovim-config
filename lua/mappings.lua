@@ -12,7 +12,7 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd>w<cr><ESC>", { silent = true }, { desc = "
 
 map("n", "cq", ":q<cr>", { silent = true }, { desc = "close quickFix or Diagnostics list" })
 
-map("n", "<leader>nd", ":NoiceDismiss<cr>", { silent = true }, { desc = "Dissmiss noice message" })
+map("n", "<leader>;", ":NoiceDismiss<cr>", { silent = true }, { desc = "Dissmiss noice message" })
 
 ------------------------toggle lspsaga terminal--------------
 map({ "n" }, "<M-t>", ":Lspsaga term_toggle<cr>", { silent = true }, { desc = "toggle lspsaga terminal" })
@@ -67,6 +67,30 @@ wk.register({
 		},
 	},
 }, { prefix = "<leader>" })
+
+-- restore the session for the current directory
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>zs",
+	[[<cmd>lua require("persistence").load()<cr>]],
+	{ desc = "load persistance" }
+)
+
+-- restore the last session
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>zl",
+	[[<cmd>lua require("persistence").load({ last = true })<cr>]],
+	{ desc = "Load last persistance" }
+)
+
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>zx",
+	[[<cmd>lua require("persistence").stop()<cr>]],
+	{ desc = "Stop persistence" }
+)
 
 -- map("n", "<leader>ac", ":Lspsaga code_action <cr>", { desc = "code_actions with lspsaga" })
 
