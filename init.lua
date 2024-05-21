@@ -13,6 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require("configs.lazy")
 
+--to close terminal instantly without the "exited process 0" message
+vim.api.nvim_create_autocmd("TermClose", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_feedkeys("i", "n", false)
+	end,
+})
+
 ---==========================load plugins and nvchad=========================---
 require("lazy").setup({
 	{
