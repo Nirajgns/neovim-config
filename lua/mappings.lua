@@ -68,23 +68,19 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
--- restore the session for the current directory
+--===============Persistence================-
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>zs",
 	[[<cmd>lua require("persistence").load()<cr>]],
 	{ desc = "load persistance" }
 )
-
--- restore the last session
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>zl",
 	[[<cmd>lua require("persistence").load({ last = true })<cr>]],
 	{ desc = "Load last persistance" }
 )
-
--- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>zx",
@@ -92,6 +88,19 @@ vim.api.nvim_set_keymap(
 	{ desc = "Stop persistence" }
 )
 
+--======================Specter Search====================-
+vim.keymap.set("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>', {
+	desc = "Toggle Spectre",
+})
+vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+	desc = "Search on current file",
+})
 -- map("n", "<leader>ac", ":Lspsaga code_action <cr>", { desc = "code_actions with lspsaga" })
 
 -- map("n", "K", ":Lspsaga hover_doc <cr>", { desc = "hover using lspsaga" })
