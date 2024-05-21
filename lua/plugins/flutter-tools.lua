@@ -89,9 +89,11 @@ return {
 				},
 			},
 		})
-		function _G.statusLine()
-			return vim.g.flutter_tools_decorations.app_version
-		end
-		vim.opt.statusline = "%!v:lua.statusLine()"
+
+		-- connested device in statusLine
+		-- function _G.statusLine()
+		-- 	return vim.g.flutter_tools_decorations.app_version
+		-- end
+		-- vim.opt.statusline = "%!v:lua.statusLine()"
 	end,
 }
