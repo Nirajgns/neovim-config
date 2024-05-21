@@ -32,6 +32,42 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
+wk.register({
+	q = {
+		name = "Trouble",
+		q = {
+			function()
+				require("trouble").toggle()
+			end,
+			"toggle trouble",
+		},
+		d = {
+			function()
+				require("trouble").toggle("document_diagnostics")
+			end,
+			"toggle document diagnostics",
+		},
+		w = {
+			function()
+				require("trouble").toggle("workspace_diagnostics")
+			end,
+			"toggle workspace diagnostics",
+		},
+		l = {
+			function()
+				require("trouble").toggle("loclist")
+			end,
+			"toggle loclist",
+		},
+		r = {
+			function()
+				require("trouble").toggle("toggle lsp_references")
+			end,
+			"List references",
+		},
+	},
+}, { prefix = "<leader>" })
+
 -- map("n", "<leader>ac", ":Lspsaga code_action <cr>", { desc = "code_actions with lspsaga" })
 
 -- map("n", "K", ":Lspsaga hover_doc <cr>", { desc = "hover using lspsaga" })
