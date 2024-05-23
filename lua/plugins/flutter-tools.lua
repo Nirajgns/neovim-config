@@ -53,7 +53,7 @@ return {
 			},
 			closing_tags = {
 				highlight = "Comment", -- highlight for the closing tag
-				prefix = "■", -- character to use for close tag e.g. > Widget
+				prefix = "//", -- character to use for close tag e.g. > Widget
 				enabled = true, -- set to false to disable
 			},
 			dev_log = {
@@ -76,7 +76,7 @@ return {
 					background_color = nil, -- required, when background is transparent (i.e. background_color = { r = 19, g = 17, b = 24 })
 					foreground = false, -- highlight the foreground
 					virtual_text = true, -- show the highlight using virtual text
-					virtual_text_str = "//", -- the virtual text character to highlight
+					virtual_text_str = "■■ ", -- the virtual text character to highlight
 				}, -- see the link below for details on each option:
 				-- https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md#client-workspace-configuration
 				settings = {

@@ -3,8 +3,8 @@ return {
 	event = "VeryLazy",
 	opts = {
 		lsp = {
-			signature = { false },
-			hover = { false },
+			signature = { true },
+			hover = { true },
 		},
 		-- add any options here
 	},

@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 require("nvchad.mappings")
 -- add yours here
 
@@ -23,7 +24,7 @@ wk.register({
 		name = "Lspsaga",
 		c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
 		o = { "<cmd>Lspsaga outline<cr>", "Outline" },
-		r = { "<cmd>Lspsaga rename<cr>", "Rename" },
+		r = { "<cmd>Lspsaga rename<cr>", "Rename with lsp" },
 		d = { "<cmd>Lspsaga goto_definition<cr>", "Lsp GoTo Definition" },
 		f = { "<cmd>Lspsaga finder<cr>", "Lsp Finder" },
 		p = { "<cmd>Lspsaga preview_definition<cr>", "Preview Definition" },
@@ -69,38 +70,31 @@ wk.register({
 }, { prefix = "<leader>" })
 
 --===============Persistence================-
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>zs",
-	[[<cmd>lua require("persistence").load()<cr>]],
-	{ desc = "load persistance" }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>zl",
-	[[<cmd>lua require("persistence").load({ last = true })<cr>]],
-	{ desc = "Load last persistance" }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>zx",
-	[[<cmd>lua require("persistence").stop()<cr>]],
-	{ desc = "Stop persistence" }
-)
 
---======================Specter Search====================-
-vim.keymap.set("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>', {
-	desc = "Toggle Spectre",
-})
-vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-	desc = "Search current word",
-})
-vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-	desc = "Search current word",
-})
-vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-	desc = "Search on current file",
-})
+wk.register({
+	z = {
+		name = "persistence",
+		s = { "<cmd>lua require('persistence').load()<cr>", "Load persistence" },
+		l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Load last persistence" },
+		x = { "<cmd>lua require('persistence').stop()<cr>", "Stop persistence" },
+	},
+}, { prefix = "<leader>" })
+
+--======================Spectre Search====================-
+wk.register({
+	s = {
+		name = "spectre",
+		t = { '<cmd>lua require("spectre").toggle()<CR>', "Toggle Spectre" },
+		p = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search on project" },
+		f = { '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', "Search on current file" },
+	},
+}, { prefix = "<leader>" })
+
+wk.register({
+	s = {
+		w = { '<esc><cmd>lua require("spectre").open_visual()<CR>', "Search current word" },
+	},
+}, { mode = "v", prefix = "<leader>" })
 -- map("n", "<leader>ac", ":Lspsaga code_action <cr>", { desc = "code_actions with lspsaga" })
 
 -- map("n", "K", ":Lspsaga hover_doc <cr>", { desc = "hover using lspsaga" })

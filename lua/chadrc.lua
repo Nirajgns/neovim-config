@@ -14,8 +14,13 @@ M.ui = {
 }
 
 M.ui = {
+	tabufline = { enabled = false },
+}
+
+M.ui = {
 	statusline = {
-		separator_style = "round",
+		theme = "vscode_colored",
+		-- separator_style = "round",
 	},
 }
 

@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require("configs.lazy")
 
---to close terminal instantly without the "exited process 0" message
+--to close terminal instantly without the process 0
 vim.api.nvim_create_autocmd("TermClose", {
 	pattern = "*",
 	callback = function()
@@ -62,7 +62,7 @@ vim.g.neovide_hide_mouse_when_typing = true
 
 vim.g.neovide_fullscreen = true
 
-vim.g.neovide_cursor_smooth_blink = "blinkon"
+vim.g.neovide_cursor_smooth_blink = true
 
 --===================floating diagnostics on cursor===================--
 --
@@ -76,7 +76,7 @@ function OpenDiagnosticIfNoFloat()
 		end
 	end
 	-- THIS IS FOR BUILTIN LSP
-	vim.diagnostic.open_float(0, {
+	vim.diagnostic.open_float({
 		scope = "cursor",
 		focusable = false,
 		close_events = {
@@ -86,7 +86,7 @@ function OpenDiagnosticIfNoFloat()
 			"InsertCharPre",
 			"WinLeave",
 		},
-	})
+	}, 0)
 end
 -----------------for diagnostics as virtual text--------------------------
 -- Show diagnostics under the cursor when holding position
