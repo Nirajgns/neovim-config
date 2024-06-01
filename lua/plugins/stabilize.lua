@@ -1,6 +1,7 @@
 return {
   "luukvbaal/stabilize.nvim",
-  lazy = false,
+  lazy = true,
+  event = "UIEnter",
   config = function()
     require("stabilize").setup()
   end,

@@ -51,7 +51,7 @@ wk.register({
     R = { "<cmd>Lspsaga rename<cr>", "Rename with lsp" },
     d = { "<cmd>Lspsaga goto_definition<cr>", "Lsp GoTo Definition" },
     r = { "<cmd>Lspsaga finder<cr>", "Lsp Finder" },
-    p = { "<cmd>Lspsaga preview_definition<cr>", "Preview Definition" },
+    p = { "<cmd>Lspsaga peek_definition<cr>", "Preview Definition" },
     s = { "<cmd>Lspsaga signature_help<cr>", "Signature Help" },
     w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics" },
   },

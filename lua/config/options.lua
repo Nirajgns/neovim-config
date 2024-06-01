@@ -19,6 +19,7 @@ vim.bo.softtabstop = 2
 
 -- Line Wrapping
 opt.wrap = true
+opt.linebreak = true
 
 -- Search Settings
 opt.ignorecase = true
@@ -57,3 +58,5 @@ opt.iskeyword:append("-")
 opt.foldlevel = 20
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
+
+opt.list = false --to remove "-" while typing "space"
