@@ -1,5 +1,7 @@
 return {
   "AstroNvim/astroui",
+  event = "UIEnter",
+  lazy = false,
 
   ---@type AstroUIOpts
   opts = {

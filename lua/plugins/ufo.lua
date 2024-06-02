@@ -1,1 +1,1 @@
-return { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
+return { "kevinhwang91/nvim-ufo", event = "UIEnter", requires = "kevinhwang91/promise-async" }

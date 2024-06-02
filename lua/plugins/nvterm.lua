@@ -2,6 +2,7 @@ return {
 
   "NvChad/nvterm",
   lazy = true,
+  event = "UIEnter",
   config = function()
     require("nvterm").setup({
       terminals = {

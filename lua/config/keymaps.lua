@@ -74,3 +74,7 @@ wk.register({
     w = { '<esc><cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search current word" },
   },
 }, { mode = "v", prefix = "<leader>" })
+
+---=======================for easy typing--------------------------
+
+map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true }, { desc = "delete word with ctrl+bcspc" })
