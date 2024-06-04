@@ -17,15 +17,15 @@ return {
   --     require("neomodern").load()
   --   end,
   -- },
-  -- {
-  --   "navarasu/onedark.nvim",
-  --   config = function()
-  --     require("onedark").setup({
-  --       style = "darker",
-  --     })
-  --     require("onedark").load()
-  --   end,
-  -- },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        style = "darker",
+      })
+      require("onedark").load()
+    end,
+  },
   -- "shaunsingh/nord.nvim",
   -- config = function()
   --   require("lualine").setup({
