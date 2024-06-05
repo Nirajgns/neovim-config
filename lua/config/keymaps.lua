@@ -21,7 +21,7 @@ map("c", "<C-k>", "<Up>", { noremap = true, silent = true })
 map("c", "<C-l>", "<Right>", { noremap = true, silent = true })
 
 --flutter tools
-map("n", "<leader>ft", ":Telescope flutter commands<cr>", { silent = true }, { desc = "telescope flutter tools" })
+map("n", "<leader>ft", ":Telescope flutter commands<cr>", { silent = true, desc = "telescope flutter tools" })
 
 --nvterm toggles
 map(
@@ -39,9 +39,9 @@ map(
   { noremap = true, silent = true }
 )
 ------------------------toggle lspsaga terminal--------------
-map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true }, { desc = "toggle lspsaga terminal" })
+map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga terminal" })
 
-map({ "t" }, "<A-t>", "<C-\\><C-n>:Lspsaga term_toggle<CR>", { silent = true }, { desc = "toggle lspsaga terminal" })
+map({ "t" }, "<A-t>", "<C-\\><C-n>:Lspsaga term_toggle<CR>", { silent = true, desc = "toggle lspsaga terminal" })
 ----------------lspsaga-------------
 wk.register({
   l = {
@@ -77,4 +77,7 @@ wk.register({
 
 ---=======================for easy typing--------------------------
 
-map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true }, { desc = "delete word with ctrl+bcspc" })
+map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
+
+---url open-------
+map("n", "gx", "<esc>:URLOpenUnderCursor<cr>")
