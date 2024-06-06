@@ -41,7 +41,6 @@
   "nvim-treesitter": { "branch": "master", "commit": "69e41a2c1405ad9626ed502b86e75245f8118531" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "fd41b7ccc5490a3a99c734d1ee418b68d06c48a9" },
   "nvim-ts-autotag": { "branch": "main", "commit": "6eb4120a1aadef07ac312f1c4bc6456712220007" },
-  "nvim-ufo": { "branch": "main", "commit": "65dda6360879f6ffe0278163b9192a573a0d2a08" },
   "nvim-vtsls": { "branch": "main", "commit": "719fabc328c48fa03b1f3373205fcd1f60d21dc2" },
   "nvim-web-devicons": { "branch": "master", "commit": "b77921fdc44833c994fdb389d658ccbce5490c16" },
   "nvterm": { "branch": "main", "commit": "9d7ba3b6e368243175d38e1ec956e0476fd86ed9" },

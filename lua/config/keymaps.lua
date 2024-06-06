@@ -28,15 +28,20 @@ map(
   { "n", "t" },
   "<A-v>",
   '<cmd>lua require("nvterm.terminal").toggle("vertical")<CR>',
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "vertical terminal toggle" }
 )
 
-map({ "n", "t" }, "<A-i>", '<cmd>lua require("nvterm.terminal").toggle("float")<CR>', { noremap = true, silent = true })
+map(
+  { "n", "t" },
+  "<A-i>",
+  '<cmd>lua require("nvterm.terminal").toggle("float")<CR>',
+  { noremap = true, silent = true, desc = "horizontal terminal toggle" }
+)
 map(
   { "n", "t" },
   "<A-h>",
   '<cmd>lua require("nvterm.terminal").toggle("horizontal")<CR>',
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "floating terminal toggle" }
 )
 ------------------------toggle lspsaga terminal--------------
 map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga terminal" })
