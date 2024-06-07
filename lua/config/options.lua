@@ -19,6 +19,7 @@ vim.bo.softtabstop = 2
 
 -- Line Wrapping
 opt.wrap = true
+opt.linebreak = true
 
 -- Search Settings
 opt.ignorecase = true

@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-macchiato",
     },
   },
   -- Using lazy.nvim
@@ -17,23 +17,23 @@ return {
   --     require("neomodern").load()
   --   end,
   -- },
-  {
-    "navarasu/onedark.nvim",
-    config = function()
-      require("onedark").setup({
-        style = "darker",
-      })
-      require("onedark").load()
-    end,
-  },
-  -- "shaunsingh/nord.nvim",
-  -- config = function()
-  --   require("lualine").setup({
-  --     options = {
-  --       -- ... your lualine config
-  --       theme = "nord",
-  --       -- ... your lualine config
-  --     },
-  --   })
-  -- end,
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   config = function()
+  --     require("onedark").setup({
+  --       style = "darker",
+  --     })
+  --     require("onedark").load()
+  --   end,
+  -- },
+  "shaunsingh/nord.nvim",
+  config = function()
+    require("lualine").setup({
+      options = {
+        -- ... your lualine config
+        theme = "nord",
+        -- ... your lualine config
+      },
+    })
+  end,
 }
