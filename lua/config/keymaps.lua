@@ -9,10 +9,10 @@ local wk = require("which-key")
 map("i", "jk", "<ESC>")
 
 -- Insert mode mappings
-map("i", "<C-h>", "<Left>", { noremap = true, silent = true })
-map("i", "<C-j>", "<Down>", { noremap = true, silent = true })
-map("i", "<C-k>", "<Up>", { noremap = true, silent = true })
-map("i", "<C-l>", "<Right>", { noremap = true, silent = true })
+map("i", "<A-h>", "<Left>", { noremap = true, silent = true })
+map("i", "<A-j>", "<Down>", { noremap = true, silent = true })
+map("i", "<A-k>", "<Up>", { noremap = true, silent = true })
+map("i", "<A-l>", "<Right>", { noremap = true, silent = true })
 
 -- Command mode mappings
 map("c", "<C-h>", "<Left>", { noremap = true, silent = true })

@@ -53,7 +53,6 @@ opt.iskeyword:append("-")
 
 -- Disable the mouse while in nvim
 -- opt.mouse = ""
-
 -- Folding
 opt.foldlevel = 20
 opt.foldmethod = "expr"

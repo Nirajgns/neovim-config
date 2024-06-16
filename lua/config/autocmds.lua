@@ -2,6 +2,10 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+-- Neovim configuration in Lua
+vim.cmd("set iskeyword-=-")
+
+vim.cmd("set iskeyword-=A-Z")
 ---=================show diagnostics in insert mode===================--
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
