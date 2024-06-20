@@ -15,10 +15,10 @@ map("i", "<A-k>", "<Up>", { noremap = true, silent = true })
 map("i", "<A-l>", "<Right>", { noremap = true, silent = true })
 
 -- Command mode mappings
-map("c", "<C-h>", "<Left>", { noremap = true, silent = true })
-map("c", "<C-j>", "<Down>", { noremap = true, silent = true })
-map("c", "<C-k>", "<Up>", { noremap = true, silent = true })
-map("c", "<C-l>", "<Right>", { noremap = true, silent = true })
+map("c", "<C-h>", "<Left>", { noremap = true, silent = false })
+map("c", "<C-j>", "<Down>", { noremap = true, silent = false })
+map("c", "<C-k>", "<Up>", { noremap = true, silent = false })
+map("c", "<C-l>", "<Right>", { noremap = true, silent = false })
 
 --flutter tools
 map("n", "<leader>ft", ":Telescope flutter commands<cr>", { silent = true, desc = "telescope flutter tools" })
