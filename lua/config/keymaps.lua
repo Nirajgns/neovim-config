@@ -20,6 +20,10 @@ map("c", "<C-j>", "<Down>", { noremap = true, silent = false })
 map("c", "<C-k>", "<Up>", { noremap = true, silent = false })
 map("c", "<C-l>", "<Right>", { noremap = true, silent = false })
 
+---switch buffers with TAB key
+map("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
+map("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
+
 --flutter tools
 map("n", "<leader>ft", ":Telescope flutter commands<cr>", { silent = true, desc = "telescope flutter tools" })
 
@@ -35,18 +39,23 @@ map(
   { "n", "t" },
   "<A-i>",
   '<cmd>lua require("nvterm.terminal").toggle("float")<CR>',
-  { noremap = true, silent = true, desc = "horizontal terminal toggle" }
+  { noremap = true, silent = true, desc = "floating terminal toggle" }
 )
 map(
   { "n", "t" },
   "<A-h>",
   '<cmd>lua require("nvterm.terminal").toggle("horizontal")<CR>',
-  { noremap = true, silent = true, desc = "floating terminal toggle" }
+  { noremap = true, silent = true, desc = "horizontal terminal toggle" }
 )
 ------------------------toggle lspsaga terminal--------------
-map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga terminal" })
+map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga floating terminal" })
 
-map({ "t" }, "<A-t>", "<C-\\><C-n>:Lspsaga term_toggle<CR>", { silent = true, desc = "toggle lspsaga terminal" })
+map(
+  { "t" },
+  "<A-t>",
+  "<C-\\><C-n>:Lspsaga term_toggle<CR>",
+  { silent = true, desc = "toggle lspsaga floating terminal" }
+)
 ----------------lspsaga-------------
 wk.register({
   l = {
@@ -59,6 +68,7 @@ wk.register({
     p = { "<cmd>Lspsaga peek_definition<cr>", "Preview Definition" },
     s = { "<cmd>Lspsaga signature_help<cr>", "Signature Help" },
     w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics" },
+    i = { "<cmd>LspInfo<cr>", "Lsp info and status" },
   },
 }, { prefix = "<leader>" })
 
@@ -84,5 +94,9 @@ wk.register({
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
 
----url open-------
-map("n", "gx", "<esc>:URLOpenUnderCursor<cr>")
+map(
+  "n",
+  "<leader>uH",
+  ":lua lsp.inlay_hint.enable(0, not lsp.inlay_hint.is_enabled())<cr>",
+  { desc = "global lsp inlay hints" }
+)

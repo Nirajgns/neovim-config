@@ -46,6 +46,7 @@ vim.g.neovide_fullscreen = true
 
 vim.g.neovide_cursor_smooth_blink = true
 
+--=============FONT SIZE SETTINGS IN NEOVIDE==============--
 RefreshGuiFont = function()
   vim.opt.guifont = string.format("%s:h%s", vim.g.gui_font_face, vim.g.gui_font_size)
 end
