@@ -2,6 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   opts = function()
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+    keys[#keys + 1] = { "<c-k>", mode = "i", false }
     -- change a keymap
     keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<cr>", desc = "hover doc", silent = true }
 
@@ -16,6 +18,7 @@ return {
     keys[#keys + 1] = { "gy", "<cmd>Lspsaga goto_type_definition<cr>", desc = "go to type definition", silent = true }
 
     keys[#keys + 1] = { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "code actions", silent = true }
+
     -- disable a keymap
     -- keys[#keys + 1] = { "K", false }
     -- add a keymap

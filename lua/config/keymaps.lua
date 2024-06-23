@@ -9,16 +9,17 @@ local wk = require("which-key")
 map("i", "jk", "<ESC>")
 
 -- Insert mode mappings
-map("i", "<A-h>", "<Left>", { noremap = true, silent = true })
-map("i", "<A-j>", "<Down>", { noremap = true, silent = true })
-map("i", "<A-k>", "<Up>", { noremap = true, silent = true })
-map("i", "<A-l>", "<Right>", { noremap = true, silent = true })
+map("i", "<C-h>", "<Left>", { noremap = true, silent = true })
+map("i", "<C-j>", "<Down>", { noremap = true, silent = true })
+map("i", "<C-k>", "<Up>", { noremap = true, silent = true })
+map("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 
 -- Command mode mappings
-map("c", "<A-h>", "<Left>", { noremap = true, silent = false })
-map("c", "<A-j>", "<Down>", { noremap = true, silent = false })
-map("c", "<A-k>", "<Up>", { noremap = true, silent = false })
-map("c", "<A-l>", "<Right>", { noremap = true, silent = false })
+
+map("c", "<C-h>", "<Left>", { noremap = true, silent = false })
+map("c", "<C-j>", "<Down>", { noremap = true, silent = false })
+map("c", "<C-k>", "<Up>", { noremap = true, silent = false })
+map("c", "<C-l>", "<Right>", { noremap = true, silent = false })
 
 ---switch buffers with TAB key
 map("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
@@ -79,7 +80,6 @@ wk.register({
     t = { '<cmd>lua require("spectre").toggle()<CR>', "Toggle Spectre" },
     p = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search and replace on project" },
     f = { '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', "Search on current file" },
-
     r = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search and replace on project" },
   },
 }, { prefix = "<leader>" })
@@ -91,16 +91,13 @@ wk.register({
 }, { mode = "v", prefix = "<leader>" })
 
 ---=======================for easy typing--------------------------
-
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
-
----===================for nvchads telescope theme==============---
-map(
-  { "n" },
-  "<leader>cc",
-  "<cmd>Telescope colorscheme<cr><ESC>",
-  { noremap = true, silent = true, desc = "colorscheme nvchad telescope" }
-)
 
 ---docs in side---
 map({ "n" }, "<C-S-k>", "<cmd>DocsViewToggle<cr>", { noremap = true, silent = true, desc = "docs in the side" })
+
+-----------copy and paste--------------
+map("v", "<C-c>", '"+y', { silent = true, desc = "copy" }) -- Copy
+map("n", "<C-S-v>", '"+P', { silent = true, desc = "paste in normal mode" }) -- Paste normal mode
+map("v", "<C-S-v>", '"+P', { silent = true, desc = "paste in visual mode" }) -- Paste visual mode
+map("i", "<C-v>", "<C-R>+", { silent = true, desc = "paste in insert mode" }) -- Paste insert mode

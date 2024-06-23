@@ -1,8 +1,11 @@
 return {
   "Exafunction/codeium.nvim",
-  cmd = "Codeium",
-  build = ":Codeium Auth",
-  opts = {
-    enable_chat = true,
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
   },
+  event = "InsertEnter",
+  config = function()
+    require("codeium").setup({})
+  end,
 }
