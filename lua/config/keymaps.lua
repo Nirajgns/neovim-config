@@ -15,10 +15,10 @@ map("i", "<A-k>", "<Up>", { noremap = true, silent = true })
 map("i", "<A-l>", "<Right>", { noremap = true, silent = true })
 
 -- Command mode mappings
-map("c", "<C-h>", "<Left>", { noremap = true, silent = false })
-map("c", "<C-j>", "<Down>", { noremap = true, silent = false })
-map("c", "<C-k>", "<Up>", { noremap = true, silent = false })
-map("c", "<C-l>", "<Right>", { noremap = true, silent = false })
+map("c", "<A-h>", "<Left>", { noremap = true, silent = false })
+map("c", "<A-j>", "<Down>", { noremap = true, silent = false })
+map("c", "<A-k>", "<Up>", { noremap = true, silent = false })
+map("c", "<A-l>", "<Right>", { noremap = true, silent = false })
 
 ---switch buffers with TAB key
 map("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
@@ -94,9 +94,13 @@ wk.register({
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
 
+---===================for nvchads telescope theme==============---
 map(
-  "n",
-  "<leader>uH",
-  ":lua lsp.inlay_hint.enable(0, not lsp.inlay_hint.is_enabled())<cr>",
-  { desc = "global lsp inlay hints" }
+  { "n" },
+  "<leader>cc",
+  "<cmd>Telescope colorscheme<cr><ESC>",
+  { noremap = true, silent = true, desc = "colorscheme nvchad telescope" }
 )
+
+---docs in side---
+map({ "n" }, "<C-S-k>", "<cmd>DocsViewToggle<cr>", { noremap = true, silent = true, desc = "docs in the side" })
