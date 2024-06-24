@@ -96,6 +96,7 @@ map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word
 ---docs in side---
 map({ "n" }, "<C-S-k>", "<cmd>DocsViewToggle<cr>", { noremap = true, silent = true, desc = "docs in the side" })
 
+map({ "n" }, "<C-S-s>", "<cmd>wa<cr>", { noremap = true, silent = true, desc = "save all" })
 -----------copy and paste--------------
 map("v", "<C-c>", '"+y', { silent = true, desc = "copy" }) -- Copy
 map("n", "<C-S-v>", '"+P', { silent = true, desc = "paste in normal mode" }) -- Paste normal mode

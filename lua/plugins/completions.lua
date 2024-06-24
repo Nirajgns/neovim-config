@@ -22,14 +22,13 @@ return {
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
     local auto_select = true
-    local ELLIPSIS_CHAR = "…"
-    local MAX_LABEL_WIDTH = 20
-    local MIN_LABEL_WIDTH = 20
+
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
       completion = {
         completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       },
+      window = { completion = cmp.config.window.bordered() },
       preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -51,24 +50,20 @@ return {
         { name = "buffer" },
       }),
       formatting = {
-        format = function(entry, vim_item)
-          -- Handle the icons
+        format = function(_, item)
+          local label = item.abbr
           local icons = LazyVim.config.icons.kinds
-          if icons[vim_item.kind] then
-            vim_item.kind = icons[vim_item.kind] .. vim_item.kind
-          end
-
-          -- Handle the abbreviation formatting
-          local label = vim_item.abbr
-          local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+          local truncated_label = vim.fn.strcharpart(label, 0, 20)
           if truncated_label ~= label then
-            vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-          elseif string.len(label) < MIN_LABEL_WIDTH then
-            local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
-            vim_item.abbr = label .. padding
+            item.abbr = truncated_label .. "..."
+          elseif string.len(label) < 20 then
+            local padding = string.rep(" ", 20 - string.len(label))
+            item.abbr = label .. padding
           end
-
-          return vim_item
+          if icons[item.kind] then
+            item.kind = icons[item.kind] .. item.kind
+          end
+          return item
         end,
       },
       experimental = {

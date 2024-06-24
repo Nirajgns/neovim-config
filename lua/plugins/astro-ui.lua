@@ -1,5 +1,6 @@
 return {
   "AstroNvim/astroui",
+  event = "InsertEnter",
   ---@type AstroUIOpts
   opts = {
     highlights = {

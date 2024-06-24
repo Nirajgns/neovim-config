@@ -1,6 +1,6 @@
 return {
   "amrbashir/nvim-docs-view",
-  lazy = "VeryLazy",
+  lazy = "InsertEnter",
   cmd = "DocsViewToggle",
   opts = {
     position = "right",

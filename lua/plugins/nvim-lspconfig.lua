@@ -19,6 +19,8 @@ return {
 
     keys[#keys + 1] = { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "code actions", silent = true }
 
+    keys[#keys + 1] =
+      { "<c-s-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" }
     -- disable a keymap
     -- keys[#keys + 1] = { "K", false }
     -- add a keymap

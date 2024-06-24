@@ -4,7 +4,7 @@
 
 local opt = vim.opt
 
--- Session Management
+opt.scrolloff = 5
 
 -- Line Numbers
 opt.relativenumber = false
