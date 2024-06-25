@@ -66,14 +66,12 @@ ResetGuiFont()
 
 -- Keymaps
 
-local opts = { noremap = true, silent = true }
-
 vim.keymap.set({ "n", "i" }, "<C-+>", function()
   ResizeGuiFont(1)
-end, opts)
+end, { desc = "increase font size" })
 vim.keymap.set({ "n", "i" }, "<C-->", function()
   ResizeGuiFont(-1)
-end, opts)
+end, { desc = "decrease font size" })
 vim.keymap.set({ "n", "i" }, "<C-=>", function()
   ResetGuiFont()
-end, opts)
+end, { desc = "reset font size" })
