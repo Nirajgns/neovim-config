@@ -1,7 +1,7 @@
 return {
   "nvimdev/lspsaga.nvim",
   lazy = true,
-  event = "InsertEnter",
+  event = "LazyFile",
   config = function()
     require("lspsaga").setup({
       ui = {

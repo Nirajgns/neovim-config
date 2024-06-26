@@ -13,42 +13,43 @@ return {
        ██████  █████████████████████ ████ █████ █████ ████ ██████ 
                                                                              ]]
 
-    logo = string.rep("\n", 8) .. logo .. "\n\n"
+    logo = string.rep("\n", 1) .. logo .. "\n\n"
 
     local opts = {
-      theme = "doom",
+      theme = "hyper",
       hide = {
-        -- this is taken care of by lualine
-        -- enabling this messes up the actual laststatus setting after loading a file
         statusline = false,
       },
       config = {
         header = vim.split(logo, "\n"),
         -- stylua: ignore
-        center = {
-          { action = "require'telescope'.extensions.project.project{}",desc = " Projects",        icon = "🗃", key = "p" },
-          { action = 'lua LazyVim.pick()()',                           desc = " Find File",       icon = " ", key = "f" },
-          { action = "ene | startinsert",                              desc = " New File",        icon = " ", key = "n" },
-          { action = 'lua LazyVim.pick("oldfiles")()',                 desc = " Recent Files",    icon = " ", key = "r" },
-          { action = 'lua LazyVim.pick("live_grep")()',                desc = " Find Text",       icon = " ", key = "g" },
+        shortcut = {
           { action = 'lua LazyVim.pick.config_files()()',              desc = " Config",          icon = " ", key = "c" },
-          { action = 'lua require("persistence").load()',              desc = " Restore Session", icon = " ", key = "s" },
           { action = "LazyExtras",                                     desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
         },
+        project = {
+          enable = true,
+          limit = 99,
+          action = function()
+            require("persistence").load()
+            require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
+            vim.cmd("Neotree close")
+            vim.cmd("Neotree show")
+          end,
+        },
+        mru = { limit = 10, cwd_only = false },
         footer = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          return {
+            "",
+            --"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+          }
         end,
       },
     }
-
-    for _, button in ipairs(opts.config.center) do
-      button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-      button.key_format = "  %s"
-    end
 
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then

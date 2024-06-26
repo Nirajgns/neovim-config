@@ -1,6 +1,6 @@
 return {
   "shellRaining/hlchunk.nvim",
-  event = "InsertEnter",
+  event = "LazyFile",
   config = function()
     require("hlchunk").setup({
       chunk = { enable = true },

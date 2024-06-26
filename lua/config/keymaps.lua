@@ -15,7 +15,6 @@ map("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 map("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 
 -- Command mode mappings
-map("n", "C-x", ":bd<cr>", { noremap = true, silent = true })
 map("c", "<C-h>", "<Left>", { noremap = true, silent = false })
 map("c", "<C-j>", "<Down>", { noremap = true, silent = false })
 map("c", "<C-k>", "<Up>", { noremap = true, silent = false })
