@@ -3,17 +3,7 @@ return {
   config = function()
     require("catppuccin").setup({
       color_overrides = {
-        all = {
-          text = "#ffffff",
-        },
-        latte = {
-          base = "#ff0000",
-          mantle = "#242424",
-          crust = "#474747",
-        },
-        frappe = {},
-        macchiato = {},
-        mocha = { base = "#11111b", mantle = "#11111b" },
+        mocha = { base = "#11111b", mantle = "#12121c", crust = "#19191f" },
       },
     })
   end,

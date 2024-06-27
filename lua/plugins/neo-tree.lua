@@ -4,7 +4,7 @@ return {
     popup_border_style = "rounded",
     default_component_configs = {
       indent = {
-        last_indent_marker = "╰",
+        last_indent_marker = "╰—",
       },
     },
     window = {

@@ -30,21 +30,30 @@ vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "Iosevka Nerd Font"
 
-vim.g.neovide_floating_shadow = true
-vim.g.neovide_floating_z_height = 10
-vim.g.neovide_light_angle_degrees = 45
-vim.g.neovide_light_radius = 5
-
-vim.g.neovide_window_blurred = true
-
-vim.g.neovide_floating_blur_amount_x = 2.0
-vim.g.neovide_floating_blur_amount_y = 2.0
-
-vim.g.neovide_hide_mouse_when_typing = true
-
 vim.g.neovide_fullscreen = true
 
 vim.g.neovide_cursor_smooth_blink = true
+vim.g.neovide_scale_factor = 0.9
+
+vim.g.neovide_cursor_trail_size = 0.3
+
+vim.g.neovide_cursor_animation_length = 0.2
+vim.g.neovide_scroll_animation_length = 0.08
+--these functions prevent neovide from scrolling on buffer switch
+vim.api.nvim_create_autocmd("BufLeave", {
+  callback = function()
+    vim.g.neovide_scroll_animation_length = 0
+    vim.g.neovide_cursor_animation_length = 0.08
+  end,
+})
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.fn.timer_start(70, function()
+      vim.g.neovide_scroll_animation_length = 0.2
+      vim.g.neovide_cursor_animation_length = 0.08
+    end)
+  end,
+})
 
 --=============FONT SIZE SETTINGS IN NEOVIDE==============--
 RefreshGuiFont = function()
@@ -64,7 +73,7 @@ end
 -- Call function on startup to set default value
 ResetGuiFont()
 
--- Keymaps
+-- Keymaps for adjusting neovide fontsize
 
 vim.keymap.set({ "n", "i" }, "<C-+>", function()
   ResizeGuiFont(1)

@@ -13,7 +13,7 @@ return {
        ██████  █████████████████████ ████ █████ █████ ████ ██████ 
                                                                              ]]
 
-    logo = string.rep("\n", 1) .. logo .. "\n\n"
+    logo = string.rep("\n", 1) .. logo .. "\n"
 
     local opts = {
       theme = "hyper",
@@ -29,6 +29,7 @@ return {
           { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
         },
+        packages = { enable = false },
         project = {
           enable = true,
           limit = 99,
@@ -39,13 +40,12 @@ return {
             vim.cmd("Neotree show")
           end,
         },
-        mru = { limit = 10, cwd_only = false },
+        mru = { limit = 8, cwd_only = false },
         footer = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           return {
-            "",
-            --"⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+            "   " .. stats.loaded .. "/" .. stats.count .. " in " .. "⏲ " .. ms .. "ms",
           }
         end,
       },

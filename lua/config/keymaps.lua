@@ -5,10 +5,12 @@
 local map = vim.keymap.set
 local wk = require("which-key")
 
---jk to esc in insert mode
-map("i", "jk", "<ESC>")
+--jk to exit insert and terminal mode
+map("i", "jk", "<ESC>", { noremap = true, silent = true })
+map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 
--- Insert mode mappings
+map("t", "<esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- Insert mode mappings to move the cursor
 map("i", "<C-h>", "<Left>", { noremap = true, silent = true })
 map("i", "<C-j>", "<Down>", { noremap = true, silent = true })
 map("i", "<C-k>", "<Up>", { noremap = true, silent = true })
@@ -48,14 +50,8 @@ map(
   { noremap = true, silent = true, desc = "horizontal terminal toggle" }
 )
 
-map({ "n" }, "<A-t>", ":Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga floating terminal" })
+map({ "n", "t" }, "<A-t>", "<cmd>Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga floating terminal" })
 
-map(
-  { "t" },
-  "<A-t>",
-  "<C-\\><C-n>:Lspsaga term_toggle<CR>",
-  { silent = true, desc = "toggle lspsaga floating terminal" }
-)
 ----------------lspsaga-------------
 wk.register({
   l = {
