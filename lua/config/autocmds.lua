@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
   end,
 })
 --------------------------------neovide------------------
+vim.g.neovide_hide_mouse_when_typing = true
 vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "Iosevka Nerd Font"
@@ -33,7 +34,7 @@ vim.g.gui_font_face = "Iosevka Nerd Font"
 vim.g.neovide_fullscreen = true
 
 vim.g.neovide_cursor_smooth_blink = true
-vim.g.neovide_scale_factor = 0.9
+vim.g.neovide_scale_factor = 1
 
 vim.g.neovide_cursor_trail_size = 0.3
 

@@ -45,7 +45,7 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           return {
-            "   " .. stats.loaded .. "/" .. stats.count .. " in " .. "⏲ " .. ms .. "ms",
+            "   " .. stats.loaded .. "/" .. stats.count .. " in " .. "⏲  " .. ms .. "ms",
           }
         end,
       },

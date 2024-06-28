@@ -5,19 +5,34 @@ return {
   setup = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "stevearc/dressing.nvim", -- optional for vim.ui.select
+    "stevearc/dressing.nvim",
   },
   config = function()
     require("flutter-tools").setup({
       lsp = {
-        color = { -- show the derived colours for dart variables
-          enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
-          background = false, -- highlight the background
-          background_color = nil, -- required, when background is transparent (i.e. background_color = { r = 19, g = 17, b = 24},)
-          foreground = false, -- highlight the foreground
-          virtual_text = true, -- show the highlight using virtual text
-          virtual_text_str = "■", -- the virtual text character to highlight
+        color = {
+          enabled = true,
+          background = false,
+          background_color = nil,
+          foreground = false,
+          virtual_text = true,
+          virtual_text_str = "■",
         },
+      },
+      debugger = {
+        enabled = true,
+        run_via_dap = false,
+        exception_breakpoints = { "uncaughtException" },
+        register_configurations = function()
+          require("dap").configurations.dart = {
+            {
+              name = "Flutter",
+              request = "launch",
+              type = "dart",
+              flutterMode = "debug",
+            },
+          }
+        end,
       },
     })
   end,
