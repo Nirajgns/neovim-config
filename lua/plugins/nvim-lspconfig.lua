@@ -25,5 +25,28 @@ return {
     -- keys[#keys + 1] = { "K", false }
     -- add a keymap
     -- keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
+    --
+    return {
+      inlay_hints = {
+        enabled = false,
+        exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
+      },
+      codelens = {
+        enabled = true,
+      },
+      diagnostics = {
+        underline = true,
+        update_in_insert = true,
+        virtual_text = {
+          spacing = 25,
+          source = "if_many",
+          prefix = "●",
+          -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+          -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+          -- prefix = "icons",
+        },
+      },
+      setup = {},
+    }
   end,
 }

@@ -3,6 +3,7 @@ return {
   keys = "<leader>d",
   dependencies = {
     "rcarriga/nvim-dap-ui",
+    "nvim-neotest/nvim-nio",
     "williamboman/mason.nvim",
     "jay-babu/mason-nvim-dap.nvim",
     "theHamsta/nvim-dap-virtual-text",
@@ -24,7 +25,7 @@ return {
     wk.register({
       d = {
         name = "Debugger",
-        c = { ":Neotree close<cr>:DapContinue<cr>", "Start/Continue" },
+        c = { ":DapContinue<cr>:Neotree close<cr>", "Start/Continue" },
         i = { ":DapStepInto<cr>", "Step Into" },
         o = { ":DapStepOver<cr>", "Step Over" },
         O = { ":DapStepOut<cr>", "Step Out" },

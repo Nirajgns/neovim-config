@@ -95,8 +95,15 @@ return {
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {
+          -- function()
+          --   if vim.bo.filetype == "dart" then
+          --     return ""
+          --   else
+          --     return ""
+          --   end
+          -- end,
           function()
-            return " " .. os.date("%R")
+            return "  " .. os.date("%R")
           end,
         },
       },
