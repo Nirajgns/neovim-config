@@ -53,33 +53,39 @@ map(
 map({ "n", "t" }, "<A-t>", "<cmd>Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga floating terminal" })
 
 ----------------lspsaga-------------
-wk.register({
-  l = {
-    name = "Lspsaga",
-    c = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-    o = { "<cmd>Lspsaga outline<cr>", "Outline" },
-    R = { "<cmd>Lspsaga rename<cr>", "Rename with lsp" },
-    d = { "<cmd>Lspsaga goto_definition<cr>", "Lsp GoTo Definition" },
-    r = { "<cmd>Lspsaga finder<cr>", "Lsp Finder" },
-    p = { "<cmd>Lspsaga peek_definition<cr>", "Preview Definition" },
-    s = { "<cmd>Lspsaga signature_help<cr>", "Signature Help" },
-    w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics" },
-    i = { "<cmd>LspInfo<cr>", "Lsp info and status" },
-  },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>l", group = "Lspsaga" },
+  { "<leader>lR", "<cmd>Lspsaga rename<cr>", desc = "Rename with lsp" },
+  { "<leader>lc", "<cmd>Lspsaga code_action<cr>", desc = "Code Action" },
+  { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Lsp GoTo Definition" },
+  { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp info and status" },
+  { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
+  { "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", desc = "Preview Definition" },
+  { "<leader>lr", "<cmd>Lspsaga finder<cr>", desc = "Lsp Finder" },
+  { "<leader>ls", "<cmd>Lspsaga signature_help<cr>", desc = "Signature Help" },
+  { "<leader>lw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Show Workspace Diagnostics" },
+})
 
 --======================Spectre Search====================-
-wk.register({
-  s = {
-    name = "spectre",
-    p = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search and replace on project" },
-    f = { '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', "Search on current file" },
+wk.add({
+  {
+    "<leader>sf",
+    '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+    desc = "Search on current file",
+  },
+  {
+    "<leader>sp",
+    '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+    desc = "Search and replace on project",
   },
 }, { prefix = "<leader>" })
 
-wk.register({
-  s = {
-    w = { '<esc><cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search current word" },
+wk.add({
+  {
+    "<leader>sw",
+    '<esc><cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+    desc = "Search current word",
+    mode = "v",
   },
 }, { mode = "v", prefix = "<leader>" })
 

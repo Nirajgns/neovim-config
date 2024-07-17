@@ -18,6 +18,17 @@ return {
           virtual_text = true,
           virtual_text_str = "■",
         },
+        settings = {
+          analysisExcludedFolders = {
+            vim.fn.expand("$HOME/android"),
+            vim.fn.expand("$HOME/developmemt"),
+
+            vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+            vim.fn.expand("$HOME/.pub-cache"),
+            vim.fn.expand("/opt/homebrew/"),
+            vim.fn.expand("$HOME/tools/flutter/"),
+          },
+        },
       },
       debugger = {
         enabled = true,

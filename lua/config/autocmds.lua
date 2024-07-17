@@ -36,7 +36,7 @@ vim.g.neovide_text_gamma = 0.7
 vim.g.neovide_text_contrast = 0.1
 
 vim.g.neovide_cursor_smooth_blink = true
-vim.g.neovide_scale_factor = 0.9
+vim.g.neovide_scale_factor = 1
 vim.g.neovide_cursor_trail_size = 0.3
 
 vim.g.neovide_cursor_animation_length = 0.2

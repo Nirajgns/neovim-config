@@ -22,16 +22,14 @@ return {
     require("nvim-dap-virtual-text").setup({ highlight_new_as_changed = true })
 
     local wk = require("which-key")
-    wk.register({
-      d = {
-        name = "Debugger",
-        c = { ":DapContinue<cr>:Neotree close<cr>", "Start/Continue" },
-        i = { ":DapStepInto<cr>", "Step Into" },
-        o = { ":DapStepOver<cr>", "Step Over" },
-        O = { ":DapStepOut<cr>", "Step Out" },
-        b = { ":DapToggleBreakpoint<cr>", "Toggle Breakpoint" },
-        t = { ":DapTerminate<cr>", "Terminate debugging" },
-      },
+    wk.add({
+      { "<leader>d", group = "Debugger" },
+      { "<leader>dO", ":DapStepOut<cr>", desc = "Step Out" },
+      { "<leader>db", ":DapToggleBreakpoint<cr>", desc = "Toggle Breakpoint" },
+      { "<leader>dc", ":DapContinue<cr>:Neotree close<cr>", desc = "Start/Continue" },
+      { "<leader>di", ":DapStepInto<cr>", desc = "Step Into" },
+      { "<leader>do", ":DapStepOver<cr>", desc = "Step Over" },
+      { "<leader>dt", ":DapTerminate<cr>", desc = "Terminate debugging" },
     }, { prefix = "<leader>" })
 
     vim.keymap.set("n", "<leader>dB", function()
