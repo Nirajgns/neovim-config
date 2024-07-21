@@ -65,17 +65,16 @@ wk.add({
   { "<leader>ls", "<cmd>Lspsaga signature_help<cr>", desc = "Signature Help" },
   { "<leader>lw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Show Workspace Diagnostics" },
 })
-
---======================Spectre Search====================-
+--===================Search & Replace====================-
 wk.add({
   {
     "<leader>sf",
-    '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+    '<cmd>lua require("grug-far").grug_far({ prefills = { flags = vim.fn.expand("%") , search = vim.fn.expand("<cword>") } })<CR>',
     desc = "Search on current file",
   },
   {
     "<leader>sp",
-    '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+    '<cmd>lua require("grug-far").grug_far({ prefills = { search = vim.fn.expand("<cword>") } })<CR>',
     desc = "Search and replace on project",
   },
 }, { prefix = "<leader>" })
@@ -83,7 +82,7 @@ wk.add({
 wk.add({
   {
     "<leader>sw",
-    '<esc><cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+    '<cmd>lua require("grug-far").grug_far({ prefills = { search = vim.fn.expand("<cword>") } })<CR>',
     desc = "Search current word",
     mode = "v",
   },
@@ -106,3 +105,5 @@ map("c", "<C-v>", "<C-r>+", { noremap = true, desc = "paste in command mode" })
 map("n", "<C-S-v>", '"+P', { silent = true, desc = "paste in normal mode" })
 map("v", "<C-S-v>", '"+P', { silent = true, desc = "paste in visual mode" })
 map("i", "<C-v>", "<C-R>+", { silent = true, desc = "paste in insert mode" })
+--===============No Neck Pain=================--
+map("n", "<leader>np", ":NoNeckPain<cr>", { silent = true, desc = "toggle NoNeckPain(Zen Mode)" })

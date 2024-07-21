@@ -26,18 +26,20 @@ end
 
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = false,
-  opts = {
-    defaults = {
-      layout_strategy = "horizontal",
-      layout_config = {
-        horizontal = {
-          preview_width = 0.5,
-          prompt_position = "top",
+  lazy = true,
+  cmd = "Telescope",
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            preview_width = 0.5,
+            prompt_position = "top",
+          },
         },
+        sorting_strategy = "ascending",
       },
-      sorting_strategy = "ascending",
-      --- other configs
-    },
-  },
+    })
+  end,
 }

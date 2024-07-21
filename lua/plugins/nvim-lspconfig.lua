@@ -32,7 +32,7 @@ return {
         exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
       },
       codelens = {
-        enabled = true,
+        enabled = false,
       },
       diagnostics = {
         underline = true,

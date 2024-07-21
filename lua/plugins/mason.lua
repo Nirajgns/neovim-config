@@ -6,9 +6,6 @@ return {
       "stylua",
       "html-lsp",
       "css-lsp",
-      "eslint-lsp",
-      "prettierd",
-      "typescript-language-server",
     },
   },
 }
