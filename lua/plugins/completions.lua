@@ -24,7 +24,17 @@ return {
     local auto_select = true
 
     return {
-      auto_brackets = {}, -- configure any filetype to auto add brackets
+      auto_brackets = {
+        "lua",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "js",
+        "ts",
+        "jsx",
+        "tsx",
+      }, -- configure any filetype to auto add brackets
       completion = {
         completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       },

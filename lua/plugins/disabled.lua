@@ -1,4 +1,8 @@
 return {
   -- disable toggleterm
-  -- { "akinsho/toggleterm", enabled = false },
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   enabled = false,
+  -- },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
 }

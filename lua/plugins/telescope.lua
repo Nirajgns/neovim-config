@@ -28,9 +28,13 @@ return {
   "nvim-telescope/telescope.nvim",
   lazy = true,
   cmd = "Telescope",
-  config = function()
+  opts = function()
+    local actions = require("telescope.actions")
     require("telescope").setup({
       defaults = {
+        mappings = { n = { ["q"] = actions.close } },
+        prompt_prefix = "  ",
+        selection_caret = "🢂 ",
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
