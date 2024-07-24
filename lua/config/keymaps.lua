@@ -92,7 +92,7 @@ wk.add({
 map("n", "<leader>'", "<cmd>Telescope marks<cr>", { noremap = true, silent = true, desc = "marks with telescope" })
 
 ---=======================for easy typing--------------------------
-map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
+map({ "i", "t" }, "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
 
 ---docs in side---
 map({ "n" }, "<C-S-k>", "<cmd>DocsViewToggle<cr>", { noremap = true, silent = true, desc = "docs in the side" })
@@ -107,3 +107,5 @@ map("v", "<C-S-v>", '"+P', { silent = true, desc = "paste in visual mode" })
 map("i", "<C-v>", "<C-R>+", { silent = true, desc = "paste in insert mode" })
 --===============No Neck Pain=================--
 map("n", "<leader>np", ":NoNeckPain<cr>", { silent = true, desc = "toggle NoNeckPain(Zen Mode)" })
+
+map("n", "<leader>qb", ":Dashboard<cr>", { silent = true, desc = "Dashboard" })

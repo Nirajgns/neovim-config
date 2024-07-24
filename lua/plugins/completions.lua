@@ -25,6 +25,7 @@ return {
 
     return {
       auto_brackets = {
+        "python",
         "lua",
         "javascript",
         "typescript",
