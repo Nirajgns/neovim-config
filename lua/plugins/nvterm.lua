@@ -1,5 +1,4 @@
 return {
-
   "NvChad/nvterm",
   event = "LazyFile",
   config = function()

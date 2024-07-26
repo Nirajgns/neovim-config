@@ -7,7 +7,7 @@ local opt = vim.opt
 opt.scrolloff = 5
 
 -- Line Numbers
-opt.relativenumber = false
+opt.relativenumber = true
 opt.number = true
 
 -- Tabs & Indentation
@@ -40,9 +40,6 @@ vim.diagnostic.config({
 
 -- Backspace
 opt.backspace = "indent,eol,start"
-
--- Clipboard
-opt.clipboard:append("unnamedplus")
 
 -- Split Windows
 opt.splitright = true

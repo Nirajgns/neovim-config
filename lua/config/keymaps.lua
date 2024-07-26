@@ -105,7 +105,32 @@ map("c", "<C-v>", "<C-r>+", { noremap = true, desc = "paste in command mode" })
 map("n", "<C-S-v>", '"+P', { silent = true, desc = "paste in normal mode" })
 map("v", "<C-S-v>", '"+P', { silent = true, desc = "paste in visual mode" })
 map("i", "<C-v>", "<C-R>+", { silent = true, desc = "paste in insert mode" })
---===============No Neck Pain=================--
-map("n", "<leader>np", ":NoNeckPain<cr>", { silent = true, desc = "toggle NoNeckPain(Zen Mode)" })
 
+--Dashboard
 map("n", "<leader>qb", ":Dashboard<cr>", { silent = true, desc = "Dashboard" })
+--===============No Neck Pain=================--
+local is_nnp_on = false
+local function toggle_nnp()
+  if not is_nnp_on then
+    vim.cmd("NoNeckPain")
+    vim.defer_fn(function()
+      vim.cmd("Neotree float")
+      vim.defer_fn(function()
+        vim.cmd("Neotree close")
+      end, 200)
+    end, 50)
+    print("NoNeckPain enabled, Neotree float...")
+    is_nnp_on = not is_nnp_on
+    return
+  else
+    vim.cmd("NoNeckPain")
+    vim.cmd("Neotree left")
+    print("NoNeckPain disabled, Neotree left...")
+    is_nnp_on = not is_nnp_on
+    return
+  end
+end
+wk.add({
+  { "<leader>n", group = "Zen Mode (NNP)" },
+  { "<leader>nn", toggle_nnp, desc = "Toggle Zen Mode (NoNeckPain)" },
+})

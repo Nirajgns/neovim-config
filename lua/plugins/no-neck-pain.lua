@@ -1,7 +1,6 @@
 return {
   "shortcuts/no-neck-pain.nvim",
   cmd = "NoNeckPain",
-  keys = "<leader>np",
   config = function()
     require("no-neck-pain").setup({
       integrations = {
@@ -17,7 +16,7 @@ return {
       width = 115,
       mappings = {
         enabled = true,
-        toggle = "<Leader>np",
+        toggle = false,
         toggleLeftSide = "<Leader>nql",
         toggleRightSide = "<Leader>nqr",
         widthUp = "<Leader>n=",
