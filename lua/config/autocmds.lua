@@ -22,12 +22,12 @@ vim.api.nvim_create_autocmd("CursorHold", {
   group = augroup,
   pattern = "*",
   callback = function()
-    vim.diagnostic.open_float(nil, { focus = false })
+    vim.diagnostic.open_float(nil, { focus = true })
   end,
 })
 --------------------------------neovide------------------
 vim.g.neovide_hide_mouse_when_typing = true
-vim.g.gui_font_default_size = 17
+vim.g.gui_font_default_size = 18
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "Iosevka Nerd Font"
 

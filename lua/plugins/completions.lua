@@ -1,27 +1,60 @@
 return {
   "hrsh7th/nvim-cmp",
-  version = false, -- last release is way too old
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "onsails/lspkind-nvim",
+    "onsails/lspkind.nvim",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
+    "hrsh7th/cmp-nvim-lsp",
   },
-  -- Not all LSP servers add brackets when completing a function.
-  -- To better deal with this, LazyVim adds a custom option to cmp,
-  -- that you can configure. For example:
-  --
-  -- ```lua
-  -- opts = {
-  --   auto_brackets = { "python" }
-  -- }
-  -- ```
-  opts = function()
-    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+  config = function()
     local cmp = require("cmp")
-    local defaults = require("cmp.config.default")()
-    local auto_select = true
+    local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
+
+    require("luasnip.loaders.from_vscode").lazy_load()
+
+    vim.opt.completeopt = "menu,menuone,preview,noselect"
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+
+      window = { completion = cmp.config.window.bordered() },
+
+      mapping = cmp.mapping.preset.insert({
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "codeium" },
+      }),
+
+      ---@diagnostic disable-next-line: missing-fields
+      formatting = {
+        format = lspkind.cmp_format({
+          maxwidth = 50,
+          ellipsis_char = "...",
+        }),
+      },
+      experimental = {
+        ghost_text = false,
+      },
+    })
 
     return {
       auto_brackets = {
@@ -35,53 +68,8 @@ return {
         "ts",
         "jsx",
         "tsx",
-      }, -- configure any filetype to auto add brackets
-      completion = {
-        completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       },
-      window = { completion = cmp.config.window.bordered() },
-      preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
-      mapping = cmp.mapping.preset.insert({
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
-        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-        ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-      }),
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "path" },
-        { name = "codeium" },
-      }, {
-        { name = "buffer" },
-      }),
-      formatting = {
-        format = function(_, item)
-          local label = item.abbr
-          local icons = LazyVim.config.icons.kinds
-          local truncated_label = vim.fn.strcharpart(label, 0, 20)
-          if truncated_label ~= label then
-            item.abbr = truncated_label .. "..."
-          elseif string.len(label) < 20 then
-            local padding = string.rep(" ", 20 - string.len(label))
-            item.abbr = label .. padding
-          end
-          if icons[item.kind] then
-            item.kind = icons[item.kind] .. item.kind
-          end
-          return item
-        end,
-      },
-      experimental = {
-        ghost_text = false,
-      },
-      sorting = defaults.sorting,
-    }
+    } -- configure any filetype to auto add brackets
   end,
   main = "lazyvim.util.cmp",
 }

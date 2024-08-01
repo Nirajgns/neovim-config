@@ -118,7 +118,7 @@ local function toggle_nnp()
       vim.defer_fn(function()
         vim.cmd("Neotree close")
       end, 200)
-    end, 50)
+    end, 100)
     print("NoNeckPain enabled, Neotree float...")
     is_nnp_on = not is_nnp_on
     return
