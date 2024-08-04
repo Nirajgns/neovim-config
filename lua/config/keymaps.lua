@@ -134,3 +134,6 @@ wk.add({
   { "<leader>n", group = "Zen Mode (NNP)" },
   { "<leader>nn", toggle_nnp, desc = "Toggle Zen Mode (NoNeckPain)" },
 })
+
+---- treesitter context/ Sticky scroll
+map("n", "<leader>qt", "<cmd>TSContextToggle<cr>", { noremap = true, silent = true, desc = "Toggle sticky scroll" })

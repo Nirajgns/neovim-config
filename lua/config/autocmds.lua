@@ -86,3 +86,6 @@ end, { desc = "decrease font size" })
 vim.keymap.set({ "n", "i" }, "<C-=>", function()
   ResetGuiFont()
 end, { desc = "reset font size" })
+
+---oil---
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

@@ -14,6 +14,7 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local auto_select = true
 
     require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -24,17 +25,25 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-
-      window = { completion = cmp.config.window.bordered() },
-
+      completion = {
+        completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
+        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+        ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -43,20 +52,26 @@ return {
         { name = "path" },
         { name = "codeium" },
       }),
-
-      ---@diagnostic disable-next-line: missing-fields
       formatting = {
+        expandable_indicator = true,
+        fields = {
+          "abbr",
+          "kind",
+          "menu",
+        },
         format = lspkind.cmp_format({
-          maxwidth = 50,
+          mode = "symbol_text",
+          maxwidth = 20,
           ellipsis_char = "...",
+          before = function(_, item)
+            item.menu = ""
+            return item
+          end,
         }),
       },
       experimental = {
         ghost_text = false,
       },
-    })
-
-    return {
       auto_brackets = {
         "python",
         "lua",
@@ -69,7 +84,7 @@ return {
         "jsx",
         "tsx",
       },
-    } -- configure any filetype to auto add brackets
+    })
   end,
   main = "lazyvim.util.cmp",
 }
