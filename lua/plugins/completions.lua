@@ -10,16 +10,14 @@ return {
     "rafamadriz/friendly-snippets",
     "hrsh7th/cmp-nvim-lsp",
   },
-  config = function()
+  opts = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
     local auto_select = true
-
     require("luasnip.loaders.from_vscode").lazy_load()
 
-    vim.opt.completeopt = "menu,menuone,preview,noselect"
-    cmp.setup({
+    return {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -46,8 +44,10 @@ return {
         end,
       }),
       sources = cmp.config.sources({
+        { name = "nvim_lsp_document_symbol" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "nvim_lsp_signature_help" },
         { name = "buffer" },
         { name = "path" },
         { name = "codeium" },
@@ -60,7 +60,6 @@ return {
           "menu",
         },
         format = lspkind.cmp_format({
-          mode = "symbol_text",
           maxwidth = 20,
           ellipsis_char = "...",
           before = function(_, item)
@@ -84,7 +83,7 @@ return {
         "jsx",
         "tsx",
       },
-    })
+    }
   end,
   main = "lazyvim.util.cmp",
 }
