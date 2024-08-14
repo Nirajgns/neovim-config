@@ -10,7 +10,7 @@ return {
       "html-lsp",
       "css-lsp",
       "prettierd",
-      "eslint_d",
+      "eslint-lsp",
       "pyright",
       "vtsls",
       "black",

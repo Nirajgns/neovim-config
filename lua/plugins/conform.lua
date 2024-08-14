@@ -8,6 +8,9 @@ return {
       typescript = { "prettierd" },
       javascriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },
+      json = { "prettierd" },
+      css = { "prettierd" },
+      html = { "prettierd" },
     },
     formatters = {
       yamlfix = {
