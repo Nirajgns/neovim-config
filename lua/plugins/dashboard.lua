@@ -32,7 +32,7 @@ return {
         packages = { enable = false },
         project = {
           enable = true,
-          limit = 99,
+          limit = 9,
           action = function()
             require("persistence").load()
             require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })

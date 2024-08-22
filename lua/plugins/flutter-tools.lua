@@ -9,6 +9,7 @@ return {
   },
   config = function()
     require("flutter-tools").setup({
+      widget_guides = { enabled = false },
       lsp = {
         color = {
           enabled = true,
@@ -16,13 +17,12 @@ return {
           background_color = nil,
           foreground = false,
           virtual_text = true,
-          virtual_text_str = "■■■■",
+          virtual_text_str = "■■■■ ",
         },
         settings = {
           analysisExcludedFolders = {
             vim.fn.expand("$HOME/android"),
             vim.fn.expand("$HOME/developmemt"),
-
             vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
             vim.fn.expand("$HOME/.pub-cache"),
             vim.fn.expand("/opt/homebrew/"),

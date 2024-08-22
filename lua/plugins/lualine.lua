@@ -121,22 +121,22 @@ return {
     }
 
     -- do not add trouble symbols if aerial is enabled
-    if vim.g.trouble_lualine then
-      local trouble = require("trouble")
-      local symbols = trouble.statusline
-        and trouble.statusline({
-          mode = "symbols",
-          groups = {},
-          title = false,
-          filter = { range = true },
-          format = "{kind_icon}{symbol.name:Normal}",
-          hl_group = "lualine_c_normal",
-        })
-      table.insert(opts.sections.lualine_c, {
-        symbols and symbols.get,
-        cond = symbols and symbols.has,
-      })
-    end
+    -- if vim.g.trouble_lualine then
+    --   local trouble = require("trouble")
+    --   local symbols = trouble.statusline
+    --     and trouble.statusline({
+    --       mode = "symbols",
+    --       groups = {},
+    --       title = false,
+    --       filter = { range = true },
+    --       format = "{kind_icon}{symbol.name:Normal}",
+    --       hl_group = "lualine_c_normal",
+    --     })
+    --   table.insert(opts.sections.lualine_c, {
+    --     symbols and symbols.get,
+    --     cond = symbols and symbols.has,
+    --   })
+    -- end
 
     return opts
   end,

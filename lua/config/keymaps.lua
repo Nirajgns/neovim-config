@@ -49,22 +49,6 @@ map(
   '<cmd>lua require("nvterm.terminal").toggle("horizontal")<CR>',
   { noremap = true, silent = true, desc = "horizontal terminal toggle" }
 )
-
-map({ "n", "t" }, "<A-t>", "<cmd>Lspsaga term_toggle<cr>", { silent = true, desc = "toggle lspsaga floating terminal" })
-
-----------------lspsaga-------------
-wk.add({
-  { "<leader>l", group = "Lspsaga" },
-  { "<leader>lR", "<cmd>Lspsaga rename<cr>", desc = "Rename with lsp" },
-  { "<leader>lc", "<cmd>Lspsaga code_action<cr>", desc = "Code Action" },
-  { "<leader>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Lsp GoTo Definition" },
-  { "<leader>li", "<cmd>LspInfo<cr>", desc = "Lsp info and status" },
-  { "<leader>lo", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
-  { "<leader>lp", "<cmd>Lspsaga peek_definition<cr>", desc = "Preview Definition" },
-  { "<leader>lr", "<cmd>Lspsaga finder<cr>", desc = "Lsp Finder" },
-  { "<leader>ls", "<cmd>Lspsaga signature_help<cr>", desc = "Signature Help" },
-  { "<leader>lw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", desc = "Show Workspace Diagnostics" },
-})
 --===================Search & Replace====================-
 wk.add({
   {
@@ -95,7 +79,6 @@ map("n", "<leader>'", "<cmd>Telescope marks<cr>", { noremap = true, silent = tru
 map({ "i", "t" }, "<C-BS>", "<C-w>", { noremap = true, silent = true, desc = "delete word with ctrl+bcspc" })
 
 ---docs in side---
-map({ "n" }, "<C-S-k>", "<cmd>DocsViewToggle<cr>", { noremap = true, silent = true, desc = "docs in the side" })
 map({ "n" }, "<C-S-s>", "<cmd>wa<cr>", { noremap = true, silent = true, desc = "save all" })
 
 -----------copy and paste--------------
