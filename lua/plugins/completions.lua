@@ -17,6 +17,18 @@ return {
     local auto_select = true
     require("luasnip.loaders.from_vscode").lazy_load()
 
+    local neocodeium = require("neocodeium")
+    local commands = require("neocodeium.commands")
+
+    cmp.event:on("menu_opened", function()
+      commands.disable()
+      neocodeium.clear()
+    end)
+
+    cmp.event:on("menu_closed", function()
+      commands.enable()
+    end)
+
     return {
       snippet = {
         expand = function(args)

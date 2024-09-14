@@ -7,7 +7,7 @@ local opt = vim.opt
 opt.scrolloff = 5
 
 -- Line Numbers
-opt.relativenumber = true
+opt.relativenumber = false
 opt.number = true
 
 -- Tabs & Indentation

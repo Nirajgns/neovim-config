@@ -6,7 +6,7 @@ return {
     lint.linters_by_ft = {
       -- markdown = { "eslint" },
       javascript = { "eslint" },
-      typescript = { "eslint" },
+      -- typescript = { "eslint" },
       javascriptreact = { "eslint" },
       typescriptreact = { "eslint" },
       python = { "flake8" },

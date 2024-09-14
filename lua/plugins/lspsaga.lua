@@ -28,6 +28,10 @@ return {
           shuttle = "o",
         },
       },
+      hover = {
+        max_width = 0.5,
+        max_height = 0.7,
+      },
 
       vim.keymap.set(
         { "n", "t" },
