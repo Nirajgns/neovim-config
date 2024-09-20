@@ -35,6 +35,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+
       completion = {
         completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
       },
@@ -62,7 +63,6 @@ return {
         { name = "nvim_lsp_signature_help" },
         { name = "buffer" },
         { name = "path" },
-        { name = "codeium" },
       }),
       formatting = {
         expandable_indicator = true,

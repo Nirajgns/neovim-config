@@ -3,6 +3,7 @@ return {
   event = "LazyFile",
   opts = {
     options = {
+      buffer_close_icon = " ",
       offsets = {
         {
           filetype = "neo-tree",

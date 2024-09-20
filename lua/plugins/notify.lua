@@ -1,9 +1,9 @@
 return {
   "rcarriga/nvim-notify",
-
   opts = {
+    fps = 120,
     stages = "fade_in_slide_out",
-    timeout = 1500,
+    timeout = 500,
     render = "wrapped-compact",
   },
 }

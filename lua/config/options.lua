@@ -47,12 +47,16 @@ opt.splitbelow = true
 
 -- Consider - as part of keyword
 opt.iskeyword:append("-")
+opt.list = false --to remove "-" while typing "space"
 
 -- Disable the mouse while in nvim
 -- opt.mouse = ""
 -- Folding
+-- fold settings
 opt.foldlevel = 20
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
-
-opt.list = false --to remove "-" while typing "space"
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
+vim.wo.fillchars = "fold:\\"
+vim.wo.foldnestmax = 3
+vim.wo.foldminlines = 1
