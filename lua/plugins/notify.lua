@@ -5,5 +5,6 @@ return {
     stages = "fade_in_slide_out",
     timeout = 500,
     render = "wrapped-compact",
+    -- top_down = false,
   },
 }

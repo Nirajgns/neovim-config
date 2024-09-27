@@ -7,7 +7,7 @@ return {
     require("lspsaga").setup({
       ui = {
         code_action = "🕯️",
-        winbar_prefix = "     ",
+        winbar_prefix = "   ",
         expand = " ",
         collapse = " ",
         lines = { "╰", "├", "│", "─", "╭" },

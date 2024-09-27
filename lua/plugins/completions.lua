@@ -67,15 +67,16 @@ return {
       formatting = {
         expandable_indicator = true,
         fields = {
-          "abbr",
           "kind",
+          "abbr",
           "menu",
         },
         format = lspkind.cmp_format({
+          mode = "symbol",
           maxwidth = 20,
           ellipsis_char = "...",
           before = function(_, item)
-            item.menu = ""
+            item.menu = item.menu
             return item
           end,
         }),
