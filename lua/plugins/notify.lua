@@ -3,8 +3,8 @@ return {
   opts = {
     fps = 120,
     stages = "fade_in_slide_out",
-    timeout = 500,
+    timeout = 100,
     render = "wrapped-compact",
-    -- top_down = false,
+    top_down = false,
   },
 }
