@@ -3,7 +3,7 @@ return {
   event = "LazyFile",
   config = function()
     require("hlchunk").setup({
-      chunk = { enable = true },
+      chunk = { enable = true, chars = { right_arrow = "─" } },
       blank = { enable = false },
       line_num = { enable = false },
       indent = { enable = false },

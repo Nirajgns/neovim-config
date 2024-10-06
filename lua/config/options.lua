@@ -54,9 +54,10 @@ opt.list = false --to remove "-" while typing "space"
 -- Folding
 -- fold settings
 opt.foldlevel = 20
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldmethod = "indent" --"expr"
+-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
 vim.wo.fillchars = "fold:\\"
-vim.wo.foldnestmax = 3
-vim.wo.foldminlines = 1
+
+-- vim.wo.foldnestmax = 3
+-- vim.wo.foldminlines = 1

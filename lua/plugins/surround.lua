@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.surround",
+  event = "InsertEnter",
   recommended = true,
   keys = function(_, keys)
     -- Populate the keys based on the user's options
@@ -20,7 +21,7 @@ return {
   end,
   opts = {
     mappings = {
-      add = "gsi", -- Add surrounding in Normal and Visual modes
+      add = "ga", -- Add surrounding in Normal and Visual modes
       delete = "gsd", -- Delete surrounding
       find = "gsf", -- Find surrounding (to the right)
       find_left = "gsF", -- Find surrounding (to the left)

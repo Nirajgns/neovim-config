@@ -25,6 +25,14 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focus = false })
   end,
 })
+
+--set set_highlight_groups for folded lines
+local function set_highlight_groups()
+  vim.cmd("highlight Folded guibg=none guifg=brown")
+end
+
+set_highlight_groups()
+
 --------------------------------neovide------------------
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.gui_font_default_size = 18
