@@ -35,7 +35,7 @@ return {
 
       vim.keymap.set(
         { "n", "t" },
-        "<A-f>",
+        "<A-i>",
         "<cmd>Lspsaga term_toggle<cr>",
         { silent = true, desc = "toggle lspsaga floating terminal" }
       ),

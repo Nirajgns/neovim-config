@@ -39,7 +39,7 @@ map(
 
 map(
   { "n", "t" },
-  "<A-i>",
+  "<A-f>",
   '<cmd>lua require("nvterm.terminal").toggle("float")<CR>',
   { noremap = true, silent = true, desc = "floating terminal toggle" }
 )
